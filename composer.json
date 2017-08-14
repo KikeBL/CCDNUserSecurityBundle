@@ -1,6 +1,6 @@
 {
-    "name": "discutea/ccdn-user-security-bundle",
-    "description": "CCDN User Security Bundle",
+    "name": "MobileDev-pro/md-user-security-bundle",
+    "description": "MD User Security Bundle forked to codeconsortium",
     "keywords": ["ccdn", "codeconsortium", "user", "security", "brute force", "dictionary attack", "login"],
     "homepage": "http://github.com/codeconsortium/CCDNUserSecurityBundle",
     "type": "symfony-bundle",
@@ -17,16 +17,16 @@
         "php": ">5.5.0 || ^7.0",
         "symfony/symfony": "~3.0",
         "doctrine/orm": "^2.5",
-        "doctrine/doctrine-bundle": "^1.6"
+        "doctrine/doctrine-bundle": "^1.7"
     },
     "require-dev": {
         "symfony/swiftmailer-bundle": "^2.3",
-        "symfony/monolog-bundle": "~2.8",
+        "symfony/monolog-bundle": "~3.1",
         "raulfraile/ladybug-bundle": "dev-master",
         "friendsofsymfony/user-bundle": "dev-master"
     },
     "autoload": {
-        "psr-0": { "CCDNUser\\SecurityBundle": "" }
+        "psr-0": { "MDUser\\SecurityBundle": "" }
     },
-    "target-dir": "CCDNUser/SecurityBundle"
+    "target-dir": "MDUser/SecurityBundle"
 }
