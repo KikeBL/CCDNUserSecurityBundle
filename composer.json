@@ -1,5 +1,5 @@
 {
-    "name": "MobileDev-pro/md-user-security-bundle",
+    "name": "mobile-dev-pro/md-user-security-bundle",
     "description": "MD User Security Bundle forked to codeconsortium",
     "keywords": ["ccdn", "codeconsortium", "user", "security", "brute force", "dictionary attack", "login"],
     "homepage": "http://github.com/codeconsortium/CCDNUserSecurityBundle",
