@@ -28,5 +28,5 @@
     "autoload": {
         "psr-0": { "CCDNUser\\SecurityBundle": "" }
     },
-    "target-dir": "MDUser/SecurityBundle"
+    "target-dir": "CCDNUser/SecurityBundle"
 }
