@@ -15,7 +15,7 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">5.5.0 || ~7.0",
-        "symfony/symfony": "~3.0",
+        "symfony/symfony": "^3.0",
         "doctrine/orm": "^2.5",
         "doctrine/doctrine-bundle": "^1.7"
     },
@@ -26,7 +26,7 @@
         "friendsofsymfony/user-bundle": "dev-master"
     },
     "autoload": {
-        "psr-0": { "MDUser\\SecurityBundle": "" }
+        "psr-0": { "CCDNUser\\SecurityBundle": "" }
     },
     "target-dir": "MDUser/SecurityBundle"
 }
