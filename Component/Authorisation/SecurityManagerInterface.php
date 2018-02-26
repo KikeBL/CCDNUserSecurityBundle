@@ -19,7 +19,8 @@ use CCDNUser\SecurityBundle\Component\Authentication\Tracker\LoginFailureTracker
 interface SecurityManagerInterface
 {
     const ACCESS_ALLOWED = 0;
-    const ACCESS_DENIED_BLOCK = 1;
+    const ACCESS_DENIED_DEFER = 1;
+    const ACCESS_DENIED_BLOCK = 2;
 
     /**
      * Constructor
@@ -28,9 +29,10 @@ interface SecurityManagerInterface
      * @param \Symfony\Component\HttpFoundation\RequestStack                                $requestStack
      * @param \CCDNUser\SecurityBundle\Component\Authentication\Tracker\LoginFailureTracker $loginFailureTracker
      * @param array                                                                         $routeLogin
+     * @param array                                                                         $forceAccountRecovery
      * @param array                                                                         $blockPages
      */
-    public function __construct(RequestStack $requestStack, LoginFailureTracker $loginFailureTracker, $routeLogin, $blockPages);
+    public function __construct(RequestStack $requestStack, LoginFailureTracker $loginFailureTracker, $routeLogin, $forceAccountRecovery, $blockPages);
 
     /**
      * @access public
