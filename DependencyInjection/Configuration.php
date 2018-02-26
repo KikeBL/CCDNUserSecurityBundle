@@ -53,7 +53,6 @@ class Configuration implements ConfigurationInterface
 
         // Configuration stuff.
         $this->addLoginShieldSection($rootNode);
-        $this->addRouteRefererSection($rootNode);
 
         return $treeBuilder;
     }
@@ -219,27 +218,6 @@ class Configuration implements ConfigurationInterface
         return $this;
     }
 
-     /**
-      *
-      * @access private
-      * @param  \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
-      * @return \CCDNUser\SecurityBundle\DependencyInjection\Configuration
-      */
-     private function addRouteRefererSection(ArrayNodeDefinition $node)
-     {
-         $node
-             ->children()
-                 ->arrayNode('route_referer')
-                    ->canBeUnset()
-                     ->ignoreExtraKeys()
-                    // we just skip that array!
-                 ->end()
-             ->end()
-         ;
-
-         return $this;
-     }
-
     /**
      *
      * @access private
@@ -312,19 +290,6 @@ class Configuration implements ConfigurationInterface
                                         ->scalarNode('class')->defaultValue('CCDNUser\SecurityBundle\Component\Authorisation\SecurityManager')->end()
                                     ->end()
                                 ->end()
-                                ->arrayNode('voter')
-                                    ->addDefaultsIfNotSet()
-                                    ->canBeUnset()
-                                    ->children()
-                                        ->arrayNode('client_login_voter')
-                                            ->addDefaultsIfNotSet()
-                                            ->canBeUnset()
-                                            ->children()
-                                                ->scalarNode('class')->defaultValue('CCDNUser\SecurityBundle\Component\Authorisation\Voter\ClientLoginVoter')->end()
-                                            ->end()
-                                        ->end()
-                                    ->end()
-                                ->end()
                             ->end()
                         ->end()
                         ->arrayNode('listener')
@@ -338,19 +303,11 @@ class Configuration implements ConfigurationInterface
                                         ->scalarNode('class')->defaultValue('CCDNUser\SecurityBundle\Component\Listener\RouteRefererListener')->end()
                                     ->end()
                                 ->end()
-                                ->arrayNode('defer_login_listener')
-                                    ->addDefaultsIfNotSet()
-                                    ->canBeUnset()
-                                    ->children()
-                                        ->scalarNode('class')->defaultValue('CCDNUser\SecurityBundle\Component\Listener\DeferLoginListener')->end()
-                                    ->end()
-                                ->end()
                                 ->arrayNode('blocking_login_listener')
                                     ->addDefaultsIfNotSet()
                                     ->canBeUnset()
                                     ->children()
                                         ->scalarNode('class')->defaultValue('CCDNUser\SecurityBundle\Component\Listener\BlockingLoginListener')->end()
-                                        ->scalarNode('access_denied_exception_factory')->defaultValue('CCDNUser\SecurityBundle\Component\Listener\AccessDeniedExceptionFactory')->end()
                                     ->end()
                                 ->end()
                             ->end()
@@ -395,38 +352,11 @@ class Configuration implements ConfigurationInterface
                         ->arrayNode('route_login')
                             ->children()
                                 ->scalarNode('name')->end()
-                                ->scalarNode('path')->end()
-                                ->arrayNode('params')
-                                    ->prototype('scalar')
-                                    ->end()
-                                ->end()
-                            ->end()
-                        ->end()
-
-                        ->arrayNode('force_account_recovery')
-                            ->children()
-                                ->booleanNode('enabled')->defaultFalse()->end()
-                                ->scalarNode('after_attempts')->defaultValue(15)->end()
-                                ->scalarNode('duration_in_minutes')->defaultValue(10)->end()
-                                ->arrayNode('route_recover_account')
-                                    ->children()
-                                        ->scalarNode('name')->end()
-                                        ->arrayNode('params')
-                                            ->prototype('scalar')
-                                            ->end()
-                                        ->end()
-                                    ->end()
-                                ->end()
-                                ->arrayNode('routes')
-                                    ->prototype('scalar')
-                                    ->end()
-                                ->end()
                             ->end()
                         ->end()
 
                         ->arrayNode('block_pages')
                             ->children()
-                                ->booleanNode('enabled')->defaultFalse()->end()
                                 ->scalarNode('after_attempts')->defaultValue(15)->end()
                                 ->scalarNode('duration_in_minutes')->defaultValue(10)->end()
                                 ->arrayNode('routes')
