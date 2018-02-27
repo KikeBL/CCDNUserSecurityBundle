@@ -21,6 +21,9 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
+use CCDNUser\SecurityBundle\Component\Authentication\Tracker\LoginFailureTracker;
+use Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler;
+
 /**
  *
  * @category CCDNUser
