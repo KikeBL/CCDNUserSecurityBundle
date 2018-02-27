@@ -69,6 +69,7 @@ class CCDNUserSecurityExtension extends Extension
 
         // Load Service definitions.
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader->load('services.yml');
         $loader->load('services/components.yml');
         $loader->load('services/model-gateway.yml');
         $loader->load('services/model-repository.yml');
@@ -160,8 +161,13 @@ class CCDNUserSecurityExtension extends Extension
         $container->setParameter('ccdn_user_security.component.authentication.tracker.login_failure_tracker.class', $config['component']['authentication']['tracker']['login_failure_tracker']['class']);
 
         $container->setParameter('ccdn_user_security.component.authorisation.security_manager.class', $config['component']['authorisation']['security_manager']['class']);
+        $container->setParameter('ccdn_user_security.component.authorisation.voter.client_login_voter.class', $config['component']['authorisation']['voter']['client_login_voter']['class']);
 
         $container->setParameter('ccdn_user_security.component.listener.blocking_login_listener.class', $config['component']['listener']['blocking_login_listener']['class']);
+
+        $container->setParameter('ccdn_user_security.component.listener.defer_login_listener.class', $config['component']['listener']['defer_login_listener']['class']);
+
+        $container->setParameter('ccdn_user_security.component.access_denied_exception_factory.class', $config['component']['listener']['blocking_login_listener']['access_denied_exception_factory']);
 
         return $this;
     }
@@ -176,6 +182,7 @@ class CCDNUserSecurityExtension extends Extension
     private function getLoginShieldSection(ContainerBuilder $container, $config)
     {
         $container->setParameter('ccdn_user_security.login_shield.route_login', $config['login_shield']['route_login']);
+        $container->setParameter('ccdn_user_security.login_shield.force_account_recovery', $config['login_shield']['force_account_recovery']);
         $container->setParameter('ccdn_user_security.login_shield.block_pages', $config['login_shield']['block_pages']);
 
         return $this;
