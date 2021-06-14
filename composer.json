@@ -1,8 +1,8 @@
 {
-    "name": "codeconsortium/ccdn-user-security-bundle",
-    "description": "CCDN User Security Bundle",
-    "keywords": ["ccdn", "codeconsortium", "user", "security", "brute force", "dictionary attack", "login"],
-    "homepage": "http://github.com/codeconsortium/CCDNUserSecurityBundle",
+    "name": "eurodata/ccdn-user-security-bundle",
+    "description": "CCDN User Security Bundle [eurodata]",
+    "keywords": ["eurodata", "ccdn", "codeconsortium", "user", "security", "brute force", "dictionary attack", "login"],
+    "homepage": "http://github.com/eurodata/CCDNUserSecurityBundle",
     "type": "symfony-bundle",
     "license": "MIT",
     "authors": [
@@ -15,7 +15,7 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.3.3",
-        "symfony/symfony": "~2.5, <2.7",
+        "symfony/symfony": ">=2.5",
         "doctrine/orm": "~2.2,>=2.2.3",
         "doctrine/doctrine-bundle": "~1.2"
     },
