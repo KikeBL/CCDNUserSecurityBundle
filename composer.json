@@ -31,7 +31,6 @@
         "behat/mink-extension": "*",
         "behat/symfony2-extension": "*",
         "phpunit/phpunit": "7.5.*",
-        "raulfraile/ladybug-bundle": "dev-master",
         "friendsofsymfony/user-bundle": "~2.0@dev"
     },
     "autoload": {
